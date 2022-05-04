@@ -686,7 +686,6 @@ def run_emhapp_pipeline(fif_files, fif_files_ied, fif_files_hfo, bad_segment_out
 parser = argparse.ArgumentParser(description='运行EMHapp pipeline')
 parser.add_argument('--mat', type=str, default=None)
 parameters_mat = parser.parse_args().mat
-parameters_mat = '/data2/cuiwei/EMHapp_test/Device5/LZC/Parameters.mat'
 # 根据mat文件读取参数
 Cuda_device, Leadfields, Bst_channel, File_dirs, Prep_Param, IED_Param, VS_Param, HFO_Param = \
     load_parameters(parameter_dir=parameters_mat)
