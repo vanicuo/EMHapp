@@ -1,9 +1,9 @@
-function Out = GetDevice(IP, User, Passwd)
+function Out = GetDevice(IP, User, Passwd, sshpass_cmd)
     Out = [];
     if(nargin==0)
         [status, gpu] = dos('nvidia-smi --list-gpus');
     else
-        [status, gpu] = dos(['/usr/local/bin/sshpass -p ',Passwd,' ssh ',User,'@',IP,' nvidia-smi --list-gpus']);
+        [status, gpu] = dos([sshpass_cmd,' -p ',Passwd,' ssh ',User,'@',IP,' nvidia-smi --list-gpus']);
     end
     if(status==0)
         Out = struct('DeviceID',-1,'Device',{'CPU'});
