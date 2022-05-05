@@ -25,7 +25,7 @@ EMHapp pipeline was  programed using python, and accelerated by GPU with functio
 
 # USE EMHapp
 
-1. Open EMHapp GUI:
+1. Open EMHapp GUI (run in MATLAB):
 
 ```matlab
 EMHapp
