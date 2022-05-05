@@ -35,5 +35,8 @@ EMHapp
    1. Press "Add Button" and select anatomy file (MRI or FreeSurfer).
    2. Press "Add Button" and select MEG file for each Subject.
    3. Press "OK Button" and check database.
+   4. Set NAS, LPA and RPA fiducial points for each subject.
+   5. Wait 
+   
 3. Press "Process Button" to set parameters and run pipeline:
    1. 
