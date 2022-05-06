@@ -79,7 +79,7 @@ function status = GroupProcess()
 
             % Call Python and Run
             tempDir = fullfile(process_info.project_dir,  'RunningData', 'Fun', 'EMHapp');
-            cmd = ['source ~/.bashrc;source activate;conda activate HFO;python ', fullfile(tempDir, 'emhapp_run.py'), ' --mat ', ParamPath];
+            cmd = ['source ~/.bashrc;source activate;conda activate EMHapp;python ', fullfile(tempDir, 'emhapp_run.py'), ' --mat ', ParamPath];
             status = system(cmd);
             
             % get log

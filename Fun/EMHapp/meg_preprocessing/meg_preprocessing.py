@@ -420,7 +420,6 @@ class preprocess:
                 tsss处理后的raw
         """
 
-        raw.info['bads'] = []
         # 对数据进行陷波
         raw_check = raw.copy().pick_types(meg=True, exclude='bads', stim=False)
         raw_check = raw_check.notch_filter(np.arange(50, tsss_lowpass, 50), verbose='error',

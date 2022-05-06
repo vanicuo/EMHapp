@@ -5,10 +5,8 @@
 # @Software: PyCharm
 # @Script to:
 #   - 运行HFO/IED detection pipeline
-import re
 import os
 import mne
-import copy
 import torch
 import scipy.io
 import argparse
@@ -237,21 +235,24 @@ def read_meg_data(fif_files=None, fif_files_ied=None, fif_files_hfo=None, ictal_
         print(subj_name + ': Load_Data', str(i + 1) + '/' + str(len(fif_files)))
         # 读取原始数据
         raw = mne.io.read_raw_fif(file, verbose='error', preload=True)
-        raw_data_s.append(raw.get_data(picks='meg'))
+        raw.info['bads'] = []
+        raw_data_s.append(raw.get_data(picks=mne.pick_types(raw.info, meg=True)))
         info = mne.pick_info(raw.info, sel=mne.pick_types(raw.info, meg=True))
         data_info_s.append(info)
         # 读取IED频段滤波数据
         if len(file_ied) == 0:
-            raw_data_s_ied.append(cal_filter(raw, freq_range=(3., 80.), notch=50.).get_data(picks='meg'))
+            raw_data_s_ied.append(cal_filter(raw, freq_range=(3., 80.), notch=50.).get_data(
+                picks=mne.pick_types(raw.info, meg=True)))
         else:
             raw_ied = mne.io.read_raw_fif(file_ied, verbose='error', preload=True)
-            raw_data_s_ied.append(raw_ied.get_data(picks='meg'))
+            raw_data_s_ied.append(raw_ied.get_data(picks=mne.pick_types(raw.info, meg=True)))
         # 读取hfo频段滤波数据
         if len(file_ied) == 0:
-            raw_data_s_hfo.append(cal_filter(raw, freq_range=(80., 200.), notch=None).get_data(picks='meg'))
+            raw_data_s_hfo.append(cal_filter(raw, freq_range=(80., 200.), notch=None).get_data(
+                picks=mne.pick_types(raw.info, meg=True)))
         else:
             raw_hfo = mne.io.read_raw_fif(file_hfo, verbose='error', preload=True)
-            raw_data_s_hfo.append(raw_hfo.get_data(picks='meg'))
+            raw_data_s_hfo.append(raw_hfo.get_data(picks=mne.pick_types(raw.info, meg=True)))
         # 读取发作事件
         if ictal_event_dirs is not None:
             ictal_event_file = os.path.join(ictal_event_dirs, file.split('/')[-2],
@@ -686,6 +687,7 @@ def run_emhapp_pipeline(fif_files, fif_files_ied, fif_files_hfo, bad_segment_out
 parser = argparse.ArgumentParser(description='运行EMHapp pipeline')
 parser.add_argument('--mat', type=str, default=None)
 parameters_mat = parser.parse_args().mat
+# parameters_mat = '/data2/cuiwei/EMHapp_test/Device4/LNK/Parameters.mat'
 # 根据mat文件读取参数
 Cuda_device, Leadfields, Bst_channel, File_dirs, Prep_Param, IED_Param, VS_Param, HFO_Param = \
     load_parameters(parameter_dir=parameters_mat)

@@ -22,7 +22,8 @@ function HeadModelMat = MakeLeadField(SourceGrid, ChannelMat, ProcessData, is_os
     if isfield(ChannelMat, 'MegRefCoef')
         OPTIONS.MegRefCoef = ChannelMat.MegRefCoef;
     end
-    OPTIONS.iMeg  = [good_channel(OPTIONS.Channel, [], 'MEG'), good_channel(OPTIONS.Channel, [], 'MEG REF')];
+    OPTIONS.iMeg  = [good_channel(OPTIONS.Channel, [], 'MEG'), ...
+                     good_channel(OPTIONS.Channel, [], 'MEG REF')];
     OPTIONS.iEeg  = [];OPTIONS.iEcog = []; OPTIONS.iSeeg = [];
     % get inner_skull
     inner_skull = sSubject.Surface(sSubject.iInnerSkull).FileName;

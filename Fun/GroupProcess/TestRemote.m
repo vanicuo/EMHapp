@@ -1,6 +1,6 @@
 function error = TestRemote(matlab_path, project_path, usr_name, passwd, ip, sshpass_cmd)
     error = [];
-    if(nargin == 5)
+    if(nargin == 6)
         % step1: check ip
         cmd = ['ping -c 1 ', ip];
         [status, ~] = system(cmd);
