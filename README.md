@@ -1,5 +1,5 @@
 # About EMHapp
-A pipeline for automatic detection, visualization and localization of epileptic magnetoencephalography high-frequency oscillation
+A pipeline for automatic detection, visualization and localization of epileptic magnetoencephalography high-frequency oscillations.
 
 GUI was programed using App designer in MATALB.
 
@@ -42,4 +42,5 @@ EMHapp
    5). Press "OK Button" and check database.
    
 3. Press "Process Button" to set parameters and run pipeline:
+
    1. 
