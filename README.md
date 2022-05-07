@@ -1,10 +1,10 @@
 # About EMHapp
 A pipeline for automatic detection, visualization and localization of epileptic magnetoencephalography high-frequency oscillations.
 
-GUI was programed using App designer in MATALB.
-
+GUI was programed using App designer in MATALB.   
+    
 EMHapp pipeline was  programed using python, and accelerated by GPU with functions of pyTorch. 
-
+    
 # Install EMHapp
 
 1. Download EMHapp code via github.
