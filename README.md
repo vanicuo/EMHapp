@@ -25,7 +25,7 @@ EMHapp pipeline was  programed using python, and accelerated by GPU with functio
 
 # USE EMHapp
 
-
+A walkthrough video of EMHapp can be found at https://www.youtube.com/watch?v=Eq_fxFGbRiY or https://www.bilibili.com/video/BV1nY411c7H5 (The data process in this test was used Nvidia V100 GPU).
 
 1. Open EMHapp GUI (run in MATLAB):
 
@@ -46,4 +46,23 @@ EMHapp
    
 3. Press "Process Button" to set parameters and run pipeline:
 
-   1. 
+   1). Press "Set parameters of process Buttom" to set process parameters, and EMHapp will automaticly load data.
+   
+   2). Select subjects that need to be processed.
+
+   3). Select process localy or remotely. If process remotely, Press "Add Server Buttom" to input info of remote server (ip, user name, passwd, matlab dir, project dir).
+
+   4). Select devices to do process. If multipal devices were selected, the subject data will be processed parallelly. 
+   
+   5). Press "OK Buttom" to run process. If process remotely, data will be uploaded to remote servers.
+   
+4. Press "Process Status Button" to check status of process (output of log) in each device and download data if process remotely.
+
+5. Select subject data for visualization.
+
+6. Press "Spike Button" to view IED detection results.
+
+7. Press "HFO Button" to view IED detection results.
+
+8. Press "Show all HFO source Button" to view source map of all checked HFO events.
+   
