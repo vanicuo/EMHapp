@@ -36,13 +36,6 @@ EMHapp
 2. Press "Load Button" to load project:
 
 
-https://user-images.githubusercontent.com/27423314/167291933-bb6c5304-bbbd-4b57-8255-b881962bfb75.mp4
-
-
-
-Uploading EMHapp_1.mp4…
-
-
    1). Press "Add Button" and select anatomy file (MRI or FreeSurfer).
 
    3). Set NAS, LPA and RPA fiducial points for each subject.
